@@ -2,9 +2,9 @@ doctype 5
 html(lang="en")
   head
     meta(charset='utf-8')
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Boda Azahara y Nacho - 31 de Agosto
     meta(name='viewport',content='width=device-width, initial-scale=1.0')
+    
     // Loading Bootstrap
     link(rel='stylesheet', href='/flat/bootstrap/css/bootstrap.css')
     link(rel='stylesheet', href='/flat/bootstrap/css/bootstrap-responsive.css')
@@ -19,7 +19,30 @@ html(lang="en")
     script(type='text/javascript',src="/flat/js/html5shiv.js")
     // <![endif]
     
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
+          .navbar.mainbar
+            .navbar-inner
+              .container
+                    button.btn.btn-navbar(type="button",data-toggle="collapse",data-target="#nav-collapse-01")
+                    a.brand(href="#fakelink") 
+                      span Azahara 
+                      span.fui-heart &nbsp;
+                      span Nacho
+                    #nav-collapse-01.nav-collapse.collapse
+                      ul.pull-right.nav
+                        li
+                          a(href="#cuando") Cuándo
+                        li
+                          a(href="#como") Cómo llegar
+                        li
+                          a(href="#instrucciones") Instrucciones
+                        li
+                          a(href="#contacto") Contacto
+                          
+                         
+    
     #main-container
       block content
       
@@ -27,22 +50,24 @@ html(lang="en")
     .bottom-menu
       .container
         .row
-         .span2.brand
-            a(href="#fakelink",class="fui-flat") 
-          
-          .span8
-            ul.bottom-links
-              li 
-                a About Us
+          .span4.brand
+            a(href="#fakelink") 
+              span Azahara 
+              span.fui-heart &nbsp;
+              span Nacho
+          //.span6
+          //  ul.bottom-links
+          //    li 
+          //      a About Us
              
-          .span2
-            ul.bottom-icons
-              li 
-                a.fui-pinterest
-              li 
-                a.fui-facebook
-              li 
-                a.fui-twitter
+          //.span2
+          //  ul.bottom-icons
+          //    li 
+          //      a.fui-pinterest
+          //    li 
+          //      a.fui-facebook
+          //    li 
+          //      a.fui-twitter
               
                    
     // Load JS here for greater good

@@ -1,11 +1,12 @@
-body {
-	background: url("../images/foto.jpg")  no-repeat center center fixed;
-
+#main-container {
+  min-height: 600px;
 }
-#main-container{
-	min-height: 600px;	
-	
+.navbar.mainbar {
+  margin-bottom: 0px;
 }
-
-a {
+.row.wed-row {
+  margin-top: 100px;
+}
+.bottom-menu {
+  margin-top: 100px;
 }
