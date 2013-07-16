@@ -35,7 +35,9 @@ app.get('/', routes.index);
 app.get('/messages', message.list);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app); 
+
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
@@ -71,17 +73,6 @@ function htmlEntities(str) {
 var colors = [ 'red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange' ];
 // ... in random order
 colors.sort(function(a,b) { return Math.random() > 0.5; } );
-
-/**
- * HTTP server
- */
-var server = http.createServer(function(request, response) {
-    // Not important for us. We're writing WebSocket server, not HTTP server
-});
-server.listen(webSocketsServerPort, function() {
-    console.log((new Date()) + " Server is listening on port " + webSocketsServerPort);
-});
-
 
 /**
  * WebSocket server
