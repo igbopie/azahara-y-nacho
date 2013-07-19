@@ -9,7 +9,8 @@ var express = require('express')
   , message = require('./routes/message')
   , http = require('http')
   , path = require('path');
-
+var MessageProvider = require('./messageprovider-db').MessageProvider;
+var messageProvider= new MessageProvider("localhost","27017");
 var app = express();
 
 // all environments
@@ -85,10 +86,11 @@ io.on('connection', function (socket) {
 
     console.log((new Date()) + ' Connection accepted.');
 
-    // send back chat history
-    if (history.length > 0) {
-    	socket.emit('history',history);
-    }
+	messageProvider.findAll(function(error, results){
+		socket.emit('history',results);
+	});
+    	
+
 	  // user sent some message
     socket.on('setname', function(message) {
      	// remember user name
@@ -113,12 +115,13 @@ io.on('connection', function (socket) {
             author: userName,
             color: userColor
         };
-        history.push(obj);
-        history = history.slice(-100);
-
-        for (var i=0; i < clients.length; i++) {
+        messageProvider.save(obj,function(){
+	       for (var i=0; i < clients.length; i++) {
             clients[i].emit('message',obj);
-        }
+			} 
+        });
+        
+        
 	});
 
     // user disconnected
