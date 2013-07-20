@@ -1,5 +1,5 @@
 var MessageProvider = require('../messageprovider-db').MessageProvider;
-var messageProvider= new MessageProvider("localhost","27017");
+var messageProvider= new MessageProvider();
 
 /*
  * GET messages listing.

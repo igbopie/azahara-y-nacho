@@ -3,18 +3,35 @@ var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
+var url = require('url');
 
+var MongoClient = require('mongodb').MongoClient;
+var MONGO_URL = process.env.MONGOLAB_URI || 
+				process.env.MONGOHQ_URL || "mongodb://localhost:27017/azaharaynacho";
 
-MessageProvider = function(host, port){
-	this.db= new Db('azaharaynacho', new Server(host, port, {safe: false}, {auto_reconnect: true}, {}));
-	this.db.open(function(){});
+var connectionUri = url.parse(MONGO_URL);
+var dbName = connectionUri.pathname.replace(/^\//, '');
+
+MessageProvider = function(){
+	//this.db= new Db('azaharaynacho', new Server(host, port, {safe: false}, {auto_reconnect: true}, {}));
+	//this.db.open(function(){});	
+	var me = this;
+	 MongoClient.connect(MONGO_URL, function(error, db) {
+	 	 if( error ){
+		 	 //Could not connect
+	 	 }else{
+		 	 me.db = db;
+	 	 }
+	 });
 };
 
 MessageProvider.prototype.getCollection= function(callback) {
-  this.db.collection('messages', function(error, message_collection) {
-    if( error ) callback(error);
-    else callback(null, message_collection);
-  });
+ 
+	this.db.collection('messages', function(error, message_collection) {
+		  if( error ) callback(error);
+		  else callback(null, message_collection);
+	});
+  
 };
 
 
