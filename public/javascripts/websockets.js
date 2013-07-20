@@ -34,7 +34,7 @@ $(function () {
     
     sio.on('color',function (message) {
        myColor = message;
-       status.text(myName + ': ').css('color', myColor);
+       status.text(myName + ': ').css('color',convertFlatColor(myColor));
        input.removeAttr('disabled').focus();
        // from now user can start sending messages
     });
@@ -53,7 +53,17 @@ $(function () {
      */
     input.keydown(function(e) {
         if (e.keyCode === 13) {
-            var msg = $(this).val();
+            send();
+        }
+    });
+    
+    $("#btn-send").click(send);
+    
+    /**
+     * Send a Message
+     */
+    function send(){
+	    var msg = $(input).val();
             if (!msg) {
                 return;
             }
@@ -70,20 +80,47 @@ $(function () {
 				sio.emit("message",msg);
             }
             
-            $(this).val('');
-            
+            $(input).val('');
 
-            
-        }
-    });
-
+    }
+    
     /**
      * Add message to the chat window
      */
     function addMessage(author, message, color, dt) {
-        content.prepend('<p><span style="color:' + color + '">' + author + '</span> @ ' +
+    	        content.prepend('<p><span style="color:' + convertFlatColor(color) + '">' + author + '</span> @ ' +
              + (dt.getHours() < 10 ? '0' + dt.getHours() : dt.getHours()) + ':'
              + (dt.getMinutes() < 10 ? '0' + dt.getMinutes() : dt.getMinutes())
              + ': ' + message + '</p>');
     }
+    
+    function convertFlatColor(color){
+    	
+    	if(color == "red"){
+    		color = "#e74c3c";
+    	}
+    	if(color == "green"){
+	    	color = "#2ecc71";
+    	}
+    	if(color == "blue"){
+	    	color = "#3498db";
+    	}
+    	if(color == "magenta"){
+	    	color = "#9b59b6";
+    	}
+    	if(color == "purple"){
+	    	color = "#8e44ad";
+    	}
+    	if(color == "plum"){
+	    	color = "#f1c40f";
+    	}
+    	if(color == "orange"){
+	    	color = "#e67e22";
+    	}
+    	
+    	
+    	return color;
+    }
 });
+
+
