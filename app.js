@@ -40,6 +40,8 @@ models.defineModels(mongoose,app);
 
 // Define Routes
 app.get('/', routes.index);
+app.get('/register', routes.registerGet);
+app.post('/register', routes.registerPost);
 app.get('/messages', message.list);
 app.get('/users', user.list);
 

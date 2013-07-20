@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .container
+    .span12
+    
+      .alert.alert-error
+        button.close.fui-cross(type="button",data-dismiss="alert")
+        span #{error}
+        
+      form.register#login(method='post', action='/register')
+        div
+          label Email:
+          input(name='user[email]', value=user.email || '', type='text')
+
+        div
+          label Contraseña:
+          input(name='user[password]', value=user.password || '', type='password')
+          
+        div
+          label ¿Asistirás a la boda?:
+          input(name='user[rvsp]', value=user.rvsp || '', type='checkbox')
+          
+        div
+          label Tu Nombre:
+          input(name='user[name]', value=user.name || '', type='text')
+          
+        div
+          label Tus Apellidos:
+          input(name='user[lastname]', value=user.name || '', type='text')
+          
+        div
+          label De qué conoces a los novios ;):
+          textarea(name='user[whoiam]', value=user.whoiam || '')
+
+        div
+          input.btn.btn-primary(type='submit', value='Registrate')
+        
+       

@@ -4,5 +4,7 @@
  */
 
 exports.list = function(req, res){
-  res.send("respond with a resource");
+  req.app.User.find({},function(error, docs){
+      res.send(docs);
+  });
 };
