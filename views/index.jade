@@ -17,9 +17,9 @@ block content
         .span9
           h2 Cómo llegar
           p 
-            a(href="https://maps.google.es/maps?f=q&source=s_q&hl=en&geocode=+&q=Caballos+La+Vereda&ie=UTF8&hq=&hnear=Riaza,+Segovia,+Castile+and+Le%C3%B3n&ll=41.307084,-3.477763&spn=0.002934,0.005681&t=m&z=18&vpsrc=6&iwloc=A&cid=7169663192889518854",target="_blank") Hípica la Vereda 
+            a(target="_blank",href="https://maps.google.es/maps?f=q&source=s_q&hl=en&geocode=+&q=Caballos+La+Vereda&ie=UTF8&hq=&hnear=Riaza,+Segovia,+Castile+and+Le%C3%B3n&ll=41.307084,-3.477763&spn=0.002934,0.005681&t=m&z=18&vpsrc=6&iwloc=A&cid=7169663192889518854",target="_blank") Hípica la Vereda 
             br
-            small Ctra. N110. Km 113.5. Riaza. Segovia
+            small Carretera N110 - Km 113,5. Riaza (Segovia)
       #instrucciones.row.wed-row
         .span3
           img(src="/flat/images/icons/Clipboard@2x.png",alt="")
@@ -32,18 +32,20 @@ block content
         .span3
           img(src="/flat/images/icons/Mail@2x.png",alt="")
         .span9
-          h2 Contacto
+          h2 Contacto y Confirmación
           p
-            a(href="mailto:boda@azaharaynacho.com") boda@azaharaynacho.com
+            a(target="_blank",href="mailto:boda@azaharaynacho.com") boda@azaharaynacho.com
       #chat.row.wed-row
         .span3
           img(src="/flat/images/icons/Dude@2x.png",alt="")
         .span9
-          h2 Chat Experimental :D
+          h2 Dejanos tu mensaje
           #content
-          div
-            span#status Connecting...
-            input#input(type="text",disabled="disabled")
+          div.form-horizontal.mtl
+            .control-group
+              label#status.control-label Conectando...
+              .controls
+                input#input(type="text",disabled="disabled")
             
       #alojamiento.row.wed-row
         .span3
@@ -60,13 +62,13 @@ block content
               span 8 habitaciones dobles y 1 habitación individual Dispone de restaurante, bar cafetería y terraza.
             p 
               b Dirección: 
-              span C/ Isidro Rodríguez, 18 40500 RIAZA (SEGOVIA)
+              a(target="_blank",href="https://maps.google.es/maps?q=Calle+Isidro+Rodr%C3%ADguez,+18+40500+Riaza+(Segovia)&hl=en&ie=UTF8&sll=40.396764,-3.713379&sspn=10.486721,14.655762&hnear=Calle+Isidro+Rodr%C3%ADguez,+18,+40500+Riaza,+Segovia&t=m&z=16&iwloc=A") Calle Isidro Rodríguez, 18 40500 Riaza (Segovia)
             p 
               b Teléfono: 
               span 921 55 00 51 / fax 921 55 06 04
             p 
               b Página web: 
-              a(href="http://www.casaquemadariaza.com") www.casaquemadariaza.com
+              a(target="_blank",href="http://www.casaquemadariaza.com") www.casaquemadariaza.com
             p 
               b Precio: 
               span Habitación doble: 55€
@@ -79,13 +81,14 @@ block content
               span 5 apartamentos de 4 personas y 2 de 6 personas
             p 
               b Dirección: 
-              span C/ Iglesia, 2 40500 RIAZA (SEGOVIA)
+              a(target="_blank",href="https://maps.google.es/maps?q=Calle+Iglesia,+2+40500+Riaza+(Segovia)&hl=en&ll=41.280161,-3.477709&spn=0.010111,0.014312&sll=41.279089,-3.480427&sspn=0.010111,0.014312&hnear=Calle+la+Iglesia,+2,+40500+Riaza,+Segovia&t=m&z=16") Calle Iglesia, 2 40500 Riaza (Segovia)
             p 
               b Teléfono: 
               span 921 55 02 83 / 696 27 81 19 Fax: 921 55 02 83
             p 
               b Email: 
-              span casapastor@hotmail.com
+              span
+                a(target="_blank",href="mailto:casapastor@hotmail.com") casapastor@hotmail.com
             p 
               b Precio: 
               span Habitación doble: 55€, Apartamento 4 personas: 72€, Apartamento 7 personas: 100€
@@ -98,13 +101,14 @@ block content
               span 15 habitaciones dobles
             p 
               b Dirección: 
-              span Plaza Mayor, 4 40500 RIAZA (SEGOVIA)
+              a(target="_blank",href="https://maps.google.es/maps?q=Plaza+Mayor,+4+40500+Riaza+(Segovia)&hl=en&ie=UTF8&ll=41.27958,-3.476894&spn=0.010111,0.014312&sll=41.280161,-3.477709&sspn=0.010111,0.014312&hnear=Traves%C3%ADa+Mayor,+4,+40500+Riaza,+Segovia&t=m&z=16&iwloc=A") Plaza Mayor, 4 40500 Riaza (Segovia)
             p 
               b Teléfono: 
               span 921 55 10 55
             p 
               b Página web: 
-              span www.hoterplazariaza.com
+              span 
+                a(target="_blank",href="http://www.hoterplazariaza.com/") www.hoterplazariaza.com
             p 
               b Precio: 
               span Habitación doble: 45€
@@ -114,13 +118,14 @@ block content
             h4 Apartamentos Monte Hernanz
             p 
               b Dirección: 
-              span CL. EUGENIO HERNANZ GÓMEZ, 5 40500 RIAZA (SEGOVIA)
+              a(target="_blank",href="https://maps.google.es/maps?q=Calle+Eugenio+Hernanz+G%C3%B3mez,+5+40500+Riaza+(Segovia)&hl=en&ie=UTF8&ll=41.276323,-3.488717&spn=0.010111,0.014312&sll=41.27958,-3.476894&sspn=0.010111,0.014312&hnear=Calle+Eugenio+Hernanz+G%C3%B3mez,+40500+Riaza,+Segovia&t=m&z=16") Calle Eugenio Hernanz Gómez, 5 40500 Riaza (Segovia)
             p 
               b Teléfono: 
               span 652 98 22 42 Fax: 921 55 00 04
             p 
               b Página web: 
-              span www.montehernanz.com
+              span
+                a(target="_blank",href="http://www.montehernanz.com/") www.montehernanz.com
             p 
               b Precio: 
               span Habitación doble: 77€, Apartamiento 4 personas: 110€
@@ -133,13 +138,13 @@ block content
               span 38 habitaciones
             p 
               b Dirección: 
-              span Calle Val Bajo, 34 40500 RIAZA (SEGOVIA)
+              a(target="_blank",href="https://maps.google.es/maps?q=Calle+Val+Bajo,+34+40500+Riaza+(Segovia)&hl=en&ll=41.275581,-3.479061&spn=0.010111,0.014312&sll=41.276323,-3.488717&sspn=0.010111,0.014312&hnear=Calle+Val+Bajo,+34,+40500+Riaza,+Segovia&t=m&z=16") Calle Val Bajo, 34 40500 Riaza (Segovia)
             p 
               b Teléfono: 
               span 921 55 05 03/ 659 98 22 42
             p 
               b Página web: 
-              a(href="http://www.laromerosa.es") www.laromerosa.es
+              a(target="_blank",href="http://www.laromerosa.es") www.laromerosa.es
             p 
               b Precio: 
               span Habitación doble: 55€
@@ -148,7 +153,7 @@ block content
             
             h4 Más información:
             p 
-              a(href="http://www.riaza.es/donde-dormir") http://www.riaza.es/donde-dormir
+              a(target="_blank",href="http://www.riaza.es/donde-dormir") http://www.riaza.es/donde-dormir
 
         
        
