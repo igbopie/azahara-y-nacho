@@ -1,11 +1,9 @@
 var iolib = require('socket.io');
-var MessageProvider = require('./messageprovider-db').MessageProvider;
 
 //--------------------
 //Web sockets app
 //--------------------
-MessageSockets = function(httpServer){
-	var messageProvider= new MessageProvider();
+function createServer(httpServer,app){
 	
 	// list of currently connected clients (users)
 	var clients = [ ];
@@ -33,7 +31,7 @@ MessageSockets = function(httpServer){
 
     console.log((new Date()) + ' Connection accepted.');
 
-	messageProvider.findAll(function(error, results){
+	app.Message.find({},function(error, results){
 		socket.emit('history',results);
 	});
     	
@@ -62,9 +60,13 @@ MessageSockets = function(httpServer){
             author: userName,
             color: userColor
         };
-        messageProvider.save(obj,function(){
+        
+        var m = new app.Message(obj);
+        
+        
+        m.save(function(){
 	       for (var i=0; i < clients.length; i++) {
-            clients[i].emit('message',obj);
+            clients[i].emit('message',m);
 			} 
         });
         
@@ -97,4 +99,4 @@ function htmlEntities(str) {
 }
 
 
-exports.MessageSockets = MessageSockets;
+exports.createServer = createServer;
