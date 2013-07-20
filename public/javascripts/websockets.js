@@ -15,14 +15,13 @@ $(function () {
    var sio = io.connect('http://'+window.location.host);
    sio.socket.on('error', function (reason){
    		// just in there were some problems with conenction...
-   		content.html($('<p>', { text: 'Sorry, but there\'s some problem with your '
-                                    + 'connection or the server is down.' } ));
+   		content.html($('<p>', { text: 'Lo siento pero hubo algún problema con tu conexión o tu servidor está apagado' } ));
    });
    sio.on('connect', function (){
    
         // first we want users to enter their names
         input.removeAttr('disabled');
-		status.text('Choose name:');
+		status.text('Pon tu nombre:');
    
    });
     
