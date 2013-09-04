@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .span12
+    
+      .alert.alert-error
+        button.close.fui-cross(type="button",data-dismiss="alert")
+        span #{error}
+        
+      form.register#login(method='post', action='/login')
+        div
+          label Username:
+          input(name='username', value=username || '', type='text')
+
+        div
+          label Contraseña:
+          input(name='password', value=password || '', type='password')
+          
+        div
+          input.btn.btn-primary(type='submit', value='Login')
+          a(href="/register") Register 
+          
+       
+        
+       

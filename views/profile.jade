@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .container
+    .span12
+    
+      .alert.alert-error
+        button.close.fui-cross(type="button",data-dismiss="alert")
+        span #{error}
+        
+      p User: #{user}
+      p UserId: #{user_id}
+      
