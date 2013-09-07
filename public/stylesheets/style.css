@@ -19,3 +19,10 @@
   margin-top: 10px;
   height: 160px;
 }
+.small-width {
+  width: 350px;
+}
+.centered {
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,4 +1,4 @@
-extends layout
+extends single
 
 block content
   .container
@@ -11,7 +11,7 @@ block content
       form.register#login(method='post', action='/register')
         div
           label Email:
-          input(name='user[email]', value=user.email || '', type='text')
+          input.input-block-level(name='user[email]', value=user.email || '', type='text')
 
         div
           label Contraseña:
