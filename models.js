@@ -41,10 +41,8 @@ function defineModels(mongoose, app) {
     'email': { type: String, validate: [validatePresenceOf, 'an email is required'], index: { unique: true } },
     'hashed_password': String,
     'salt': String,
-    'rvsp': Boolean,
     'name': String,
     'lastname': String,
-    'whoiam': String,
     'active': Boolean
   });
 

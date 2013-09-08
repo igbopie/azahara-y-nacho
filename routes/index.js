@@ -1,4 +1,5 @@
-
+var randomString = require('random-string');
+var nodemailer = require('nodemailer');
 /*
  * GET home page.
  */
@@ -34,11 +35,36 @@ exports.registerGet = function (req, res){
 }
 exports.registerPost = function (req, res){
   var user = req.app.User(req.body.user);
+  var pass = randomString({length: 8});
+  user.password = pass;
   user.save(function(err){
 	  if(err){
-		  res.render('register', {user:user,error:err});
+		  	res.render('register', {user:user,error:err});
 	  }else{
-		  res.render('ok', { });
+	  	  	//Send Email
+	  	  	var transport = nodemailer.createTransport("sendmail");
+	  	  	// setup e-mail data with unicode symbols
+	  	  	var mailOptions = {
+			    from: "myemail@email.com", // sender address
+			    to: user.username, // list of receivers
+			    subject: "Bienvenido a Azahara y nacho ✔", // Subject line
+			    text: "Bienvenido a Azahara y Nacho: Tu email: "+user.email+". Tu Password: "+user.password+".", // plaintext body
+			    html: "<b>Bienvenido a Azahara y Nacho</b><br />Tu email: "+user.email+".<br /> Tu Password: "+user.password+".",
+			}
+			
+			// send mail with defined transport object
+			transport.sendMail(mailOptions, function(error, response){
+			    if(error){
+			        console.log(error);
+			    }else{
+			        console.log("Message sent: " + response.message);
+			    }
+			
+			    // if you don't want to use this transport object anymore, uncomment following line
+			    //smtpTransport.close(); // shut down the connection pool, no more messages
+			});
+			console.log("User Created:  user:" + user.email+" password:"+user.password);
+			res.render('ok', { });
 	  }
 	  
   });

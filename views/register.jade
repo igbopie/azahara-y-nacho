@@ -1,39 +1,30 @@
 extends single
 
 block content
-  .container
-    .span12
-    
-      .alert.alert-error
-        button.close.fui-cross(type="button",data-dismiss="alert")
-        span #{error}
+  
+      h2 Registro
+      
+      if error
+        .alert.alert-error
+          button.close.fui-cross(type="button",data-dismiss="alert")
+          span #{error}
+      
         
       form.register#login(method='post', action='/register')
-        div
+        div.control-group
           label Email:
-          input.input-block-level(name='user[email]', value=user.email || '', type='text')
+          input.span3(name='user[email]', value=user.email || '', type='text')
 
         div
-          label Contraseña:
-          input(name='user[password]', value=user.password || '', type='password')
-          
-        div
-          label ¿Asistirás a la boda?:
-          input(name='user[rvsp]', value=user.rvsp || '', type='checkbox')
-          
-        div
           label Tu Nombre:
-          input(name='user[name]', value=user.name || '', type='text')
+          input.span3(name='user[name]', value=user.name || '', type='text')
           
         div
           label Tus Apellidos:
-          input(name='user[lastname]', value=user.name || '', type='text')
+          input.span3(name='user[lastname]', value=user.name || '', type='text')
           
         div
-          label De qué conoces a los novios ;):
-          textarea(name='user[whoiam]', value=user.whoiam || '')
-
-        div
-          input.btn.btn-primary(type='submit', value='Registrate')
+          input.btn-block.btn.btn-primary(type='submit', value='Registrate')
+          a(href="/login") Volver
         
        
